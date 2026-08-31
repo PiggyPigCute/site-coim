@@ -321,7 +321,6 @@ h1,h2,h3{
 /* ===== MEMBRES ===== */
 .members-intro{
   color: #333;
-  max-width: 640px;
   margin: -20px 0 34px;
 }
 .members-list{
