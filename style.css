@@ -377,6 +377,10 @@ h1,h2,h3{
   letter-spacing: .06em;
   font-size: 1.1rem;
 }
+.footer-name a{
+  color: inherit;
+  text-decoration: underline;
+}
 .footer-note{
   margin-top: 8px;
   font-size: .8rem;
