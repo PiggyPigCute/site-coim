@@ -260,16 +260,6 @@ h1,h2,h3{
   object-fit: cover;
   opacity: .92;
 }
-.event-media.no-photo{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, var(--blue), var(--black) 60%);
-}
-.event-media.no-photo img{
-  width: 90px; height: 90px;
-  object-fit: contain;
-}
 .event-year{
   position: absolute;
   top: 16px; left: 16px;
