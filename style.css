@@ -269,8 +269,6 @@ h1,h2,h3{
 .event-media.no-photo img{
   width: 90px; height: 90px;
   object-fit: contain;
-  filter: brightness(0) invert(1);
-  opacity: .9;
 }
 .event-year{
   position: absolute;
@@ -373,7 +371,6 @@ h1,h2,h3{
 .footer-logo{
   width: 52px; height: 52px;
   margin: 0 auto 14px;
-  filter: brightness(0) invert(1);
 }
 .footer-name{
   font-family: var(--display);
