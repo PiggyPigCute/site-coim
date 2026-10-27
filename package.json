@@ -1,0 +1,16 @@
+{
+  "name": "site-coim",
+  "version": "1.0.0",
+  "description": "Site du COIM (coim.chruk.fr) avec édition de la liste des membres",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "hash": "node scripts/hash-password.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "multer": "^2.0.2"
+  }
+}

@@ -1,8 +1,14 @@
+// URL d'un drapeau : les drapeaux historiques sont notés sans extension (.png
+// supposé), ceux uploadés depuis /edit avec leur extension.
+function flagUrl(drapeau) {
+  return `/imgs/drapeaux/${drapeau.includes(".") ? drapeau : `${drapeau}.png`}`;
+}
+
 // Gestion des drapeaux : si le .png n'existe pas, on tente le .jpg,
 // sinon on affiche un motif de remplacement (voir .flag-missing en CSS).
 function handleFlagError(img) {
   const tried = img.dataset.triedJpg;
-  if (!tried) {
+  if (!tried && /\.png$/i.test(img.src)) {
     img.dataset.triedJpg = "1";
     img.src = img.src.replace(/\.png$/i, ".jpg");
     return;
@@ -44,7 +50,7 @@ async function loadMembers() {
     flag.className = "flag";
     if (membre.drapeau) {
       const img = document.createElement("img");
-      img.src = `imgs/drapeaux/${membre.drapeau}.png`;
+      img.src = flagUrl(membre.drapeau);
       img.alt = `Drapeau de ${membre.nom}`;
       img.loading = "lazy";
       img.addEventListener("error", () => handleFlagError(img));

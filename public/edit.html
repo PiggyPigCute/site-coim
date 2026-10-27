@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>COIM - Édition des membres</title>
+<link rel="icon" href="/imgs/coim.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/edit.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-brand">
+        <img src="/imgs/coim.png" alt="">
+        COIM
+      </a>
+      <div class="nav-right" id="userBox" hidden>
+        <span class="edit-user" id="userName"></span>
+        <button type="button" class="btn-primary" id="logoutBtn">Déconnexion</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- CONNEXION -->
+    <section class="section" id="loginSection" hidden>
+      <span class="section-kicker">édition</span>
+      <h2 class="section-title">Connexion</h2>
+
+      <form class="login-form" id="loginForm">
+        <label>Nom d'utilisateur
+          <input name="username" autocomplete="username" required>
+        </label>
+        <label>Mot de passe
+          <input name="password" type="password" autocomplete="current-password" required>
+        </label>
+        <label class="checkbox">
+          <input name="stayConnected" type="checkbox"> Rester connecté
+        </label>
+        <button type="submit" class="btn-primary">Se connecter</button>
+        <p class="form-error" id="loginError" role="alert"></p>
+      </form>
+    </section>
+
+    <!-- EDITION -->
+    <section class="section" id="editSection" hidden>
+      <span class="section-kicker">édition</span>
+      <h2 class="section-title">Les membres du COIM</h2>
+
+      <h3 class="edit-subtitle">Ajouter un membre</h3>
+      <div id="addRow"></div>
+
+      <h3 class="edit-subtitle">Membres existants <span id="memberCount"></span></h3>
+      <p class="edit-hint">Clique sur un drapeau pour le remplacer. Chaque ligne s'enregistre séparément.</p>
+      <div class="edit-list" id="memberRows"></div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" hidden></div>
+
+  <template id="rowTemplate">
+    <form class="edit-row">
+      <label class="flag flag-pick" title="Choisir un drapeau">
+        <img alt="">
+        <input type="file" name="drapeau" accept="image/png,image/jpeg,image/webp,image/gif" hidden>
+      </label>
+      <input class="edit-nom" name="nom" placeholder="Nom" maxlength="80" required aria-label="Nom">
+      <input class="edit-score" name="score" type="number" step="1" placeholder="Score" required aria-label="Score">
+      <label class="checkbox edit-noflag">
+        <input type="checkbox" name="sansDrapeau" value="1"> Sans drapeau
+      </label>
+      <div class="edit-actions">
+        <button type="submit" class="btn-primary edit-save">Enregistrer</button>
+        <button type="button" class="btn-danger edit-delete">Supprimer</button>
+      </div>
+    </form>
+  </template>
+
+<script src="/script.js"></script>
+<script src="/edit.js"></script>
+</body>
+</html>
